@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مختبر نجمة ديجيتال 🧪</title>
+    <style>
+        body {
+            /* 1. جرب تغير اللون من skyblue إلى gold أو pink */
+            background-color: skyblue; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cairo', sans-serif;
+            transition: 0.5s;
+        }
+
+        h1 {
+            /* 2. جرب تغير لون الخط من navy إلى red */
+            color: navy; 
+            font-size: 50px;
+        }
+
+        .btn {
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </cardinal>
+</head>
+<body>
+
+    <div style="font-size: 100px;">🍞</div>
+
+    <h1>أهلاً بك يا عباس</h1>
+
+    <button class="btn" onclick="changeColor()">اضغط لتغيير اللون</button>
+
+    <script>
+        function changeColor() {
+            // 5. هذا الكود يغير اللون عشوائياً عند الضغط
+            const colors = ['#ff4d6d', '#ffb703', '#8ecae6', '#2a9d8f'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>
