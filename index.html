@@ -1,239 +1,128 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>رسالة من علي إلى اموشاتي ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Tajawal', sans-serif;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-      transition: background 0.8s ease;
-      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    }
-
-    /* Container Card */
-    .card-container {
-      width: 90%;
-      max-width: 420px;
-      min-height: 520px;
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(15px);
-      border-radius: 30px;
-      padding: 30px 25px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      border: 2px solid rgba(255, 255, 255, 0.4);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      animation: fadeIn 0.6s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* Sticker Frame */
-    .sticker-wrapper {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      margin-bottom: 15px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .sticker-wrapper img {
-      width: 110px;
-      height: 110px;
-      object-fit: contain;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Content Styling */
-    .title {
-      font-size: 24px;
-      font-weight: 900;
-      color: #333;
-      margin-bottom: 12px;
-    }
-
-    .message {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #444;
-      font-weight: 700;
-      margin-bottom: 20px;
-      min-height: 110px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Navigation Buttons */
-    .nav-buttons {
-      display: flex;
-      gap: 15px;
-      width: 100%;
-      justify-content: space-between;
-    }
-
-    button {
-      flex: 1;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 20px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background: #ffffff;
-      color: #333;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    button:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .page-indicator {
-      font-size: 13px;
-      color: #555;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="card-container" id="card">
-    <div class="sticker-wrapper">
-      <img id="sticker" src="" alt="ستيكر بناتي">
-    </div>
-
-    <div>
-      <h2 class="title" id="title">عنوان الصفحة</h2>
-      <p class="message" id="message">محتوى الرسالة...</p>
-    </div>
-
-    <div style="width: 100%;">
-      <div class="nav-buttons">
-        <button id="prevBtn" onclick="prevPage()">السابق 👈</button>
-        <button id="nextBtn" onclick="nextPage()">التالي 👉</button>
-      </div>
-      <div class="page-indicator" id="pageIndicator">1 / 5</div>
-    </div>
-  </div>
-
-  <script>
-    // بيانات الصفحات المخزنة
-    const pages = [
-      {
-        bg: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
-        sticker: "https://api.iconify.design/fluent-emoji:girl-light.svg",
-        title: "إلى أميرتي اموشاتي 💕",
-        message: "هذا الموقع الصغير سويته الج حتى أذكرج شكد إنتي مميزة وغالية بقلبي.. من حبيبتج وعمرج علي ✨"
-      },
-      {
-        bg: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
-        sticker: "https://api.iconify.design/fluent-emoji:smiling-face-with-hearts.svg",
-        title: "ضحكتج الجميلة 🌸",
-        message: "تدرين إنو ضحكتج هي أحلى شيء بالدنيا؟ لما تبتسمين كل الدنيا تصبح أحلى وأجمل بفي عيوني 💖"
-      },
-      {
-        bg: "linear-gradient(135deg, #ffbcd9 0%, #fbe0e0 100%)",
-        sticker: "https://api.iconify.design/fluent-emoji:princess-light.svg",
-        title: "أميرة قلبي 👑",
-        message: "إنتي مو بس حبيبتي، إنتي ملجأي والشيء الحلو الوحيد الي ينور أيامي.. ربي يحفظج لي يا أطعم بنوتة ✨"
-      },
-      {
-        bg: "linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)",
-        sticker: "https://api.iconify.design/fluent-emoji:growing-heart.svg",
-        title: "وعد مني 💌",
-        message: "أوعدج أظل دائماً بجانبج، وأسندج وأحبج أكثر كل يوم مر بالأيام السابقة.. حبج بقلبي يكبر دوم 🌱"
-      },
-      {
-        bg: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
-        sticker: "https://api.iconify.design/fluent-emoji:red-heart.svg",
-        title: "احبج هواي ❤️",
-        message: "شكراً لأنكِ بفي حياتي، وشكراً على كل لحظة حلوة تصنعيها بوجودج.. احبج يا اموشاتي! 💍✨"
-      }
-    ];
-
-    let currentPage = 0;
-
-    function updatePage() {
-      const page = pages[currentPage];
-      
-      // تغيير الخلفية
-      document.body.style.background = page.bg;
-      
-      // تغيير المحتوى والستيكر
-      document.getElementById('sticker').src = page.sticker;
-      document.getElementById('title').innerText = page.title;
-      document.getElementById('message').innerText = page.message;
-      
-      // تحديث مؤشر الصفحات
-      document.getElementById('pageIndicator').innerText = `${currentPage + 1} / ${pages.length}`;
-      
-      // التحكم بالأزرار
-      document.getElementById('prevBtn').disabled = (currentPage === 0);
-      document.getElementById('nextBtn').disabled = (currentPage === pages.length - 1);
-
-      // إعادة تفعيل الأنيمايشن
-      const card = document.getElementById('card');
-      card.style.animation = 'none';
-      card.offsetHeight; /* trigger reflow */
-      card.style.animation = 'fadeIn 0.5s ease-in-out';
-    }
-
-    function nextPage() {
-      if (currentPage < pages.length - 1) {
-        currentPage++;
-        updatePage();
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 0) {
-        currentPage--;
-        updatePage();
-      }
-    }
-
-    // تشغيل الصفحة الأولى عند التحميل
-    updatePage();
-  </script>
-
-</body>
-</html>
+<!DOCTYPE html>  <html lang="ar" dir="rtl">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title> رسالة حب من علي الى امال❣️❣️</title>  
+<style>  
+* { box-sizing: border-box; }  
+body {  
+  margin: 0;  
+  min-height: 100vh;  
+  font-family: Tahoma, Arial, sans-serif;  
+  color: #7b2148;  
+  background: linear-gradient(135deg,#ffe0ec,#fff0f5,#fbd0df);  
+  text-align: center;  
+  overflow-x: hidden;  
+}  
+.card {  
+  width: 90%;  
+  max-width: 430px;  
+  margin: 55px auto;  
+  padding: 30px 20px;  
+  background: rgba(255,255,255,.8);  
+  border: 1px solid white;  
+  border-radius: 28px;  
+  box-shadow: 0 12px 40px #bd668333;  
+  position: relative;  
+  z-index: 2;  
+}  
+.cake { font-size: 75px; animation: bounce 2s infinite; }  
+h1 { font-size: 30px; line-height: 1.6; }  
+p { font-size: 17px; line-height: 2; }  
+button {  
+  border: none;  
+  border-radius: 30px;  
+  padding: 14px 25px;  
+  margin: 8px;  
+  font-size: 16px;  
+  font-weight: bold;  
+  background: #e84e8a;  
+  color: white;  
+  cursor: pointer;  
+  box-shadow: 0 5px 15px #e84e8a44;  
+}  
+button:active { transform: scale(.96); }  
+#letter {  
+  display: none;  
+  margin-top: 20px;  
+  padding: 15px;  
+  background: #fff0f5;  
+  border-radius: 18px;  
+  line-height: 2.2;  
+  animation: appear .8s;  
+}  
+.heart {  
+  position: fixed;  
+  bottom: -40px;  
+  pointer-events: none;  
+  animation: floatUp 7s linear forwards;  
+  z-index: 1;  
+}  
+#confetti {  
+  position: fixed;  
+  inset: 0;  
+  pointer-events: none;  
+  z-index: 5;  
+}  
+footer { font-size: 13px; margin-top: 25px; opacity: .75; }  
+@keyframes bounce {  
+  0%,100% { transform: translateY(0); }  
+  50% { transform: translateY(-12px); }  
+}  
+@keyframes appear {  
+  from { opacity: 0; transform: translateY(12px); }  
+  to { opacity: 1; transform: translateY(0); }  
+}  
+@keyframes floatUp {  
+  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }  
+}  
+</style>  
+</head>  
+<body>  
+<canvas id="confetti"></canvas>  <main class="card">  
+  <div class="cake">🎂</div>  
+  <p>امال حبيبتي وروحي من الدنيا سعادتي وفرحتي وضحكتي وكلشي بحياتي اتمنى تبقين وياي دائماً ومتعوفيني وتبقين اليه سند وحبيبه وام واخت واكبر داعمة اليه ربي يخليج اليه يا اجمل هدية من ربي💟💟💟</p>  
+  <h1>احبج اموشاتي❤️‍🩹❤️‍🩹<br>  
+    <span id="name">أميرتي</span> 🎀  
+  </h1>  
+  <p>احبج يا اجمل بنيه بالكون❣️✨️  
+  <button onclick="openLetter()">💌 افتحي هديتچ</button>  
+  <button onclick="celebrate()">🎉 اضغطي للاحتفال</button>    <div id="letter">  
+    <h2>إلى أجمل إنسانة 💖</h2>  
+    أتمنى ايامج كلها سعادة  ومليانة فرح ونجاح  
+    وأيام حلوة تشبه قلبچ الجميل.  
+    تبقين مبتسمة وتتحقق كل أمنياتچ،  
+     يا أحلى هدية بالدنيا! 🌷  
+    <div style="font-size:35px">✨️🎀❣️</div>  
+  </div>  
+  <footer>صُنعت بكل الحب ❤️</footer>  
+</main>  <script>  
+function openLetter() {  
+  document.getElementById("letter").style.display = "block";  
+  celebrate();  
+}  
+function makeHeart() {  
+  const h = document.createElement("div");  
+  h.className = "heart";  
+  h.textContent = ["💗","💕","💖","🌸","✨"][  
+    Math.floor(Math.random()*5)  
+  ];  
+  h.style.left = Math.random()*95 + "vw";  
+  h.style.fontSize = (18+Math.random()*25)+"px";  
+  h.style.animationDuration = (4+Math.random()*4)+"s";  
+  document.body.appendChild(h);  
+  setTimeout(() => h.remove(), 8000);  
+}  
+setInterval(makeHeart, 650);  
+  
+function celebrate() {  
+  const c = document.getElementById("confetti");  
+  const ctx = c.getContext("2d");  
+  c.width = innerWidth;  
+  c.height = innerHeight;  
+  const pieces = Array.from({length:150},()=>({  
+    x:Math.random()*c.width,  
+    y:-Math.random()*c.height,  
+    s:3+Math.random()*6,  
+    v:2+Math.random()*5,  
+    color:["#ff4f91","#ffd166","#a78bfa","#ff8fa3"][
