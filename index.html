@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إلى اموشاتي | من علي ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>إلى اموشاتي ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -16,176 +16,135 @@
     body {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #0f0c1b;
+      background: #0d0a14;
       overflow: hidden;
       font-family: 'Tajawal', sans-serif;
       color: #fff;
       position: relative;
+      padding: 20px;
     }
 
-    /* خلفية متدرجة مع أضواء ناعمة */
+    /* خلفية ضوئية ناعمة متحركة */
     .bg-glow {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(219, 112, 147, 0.25) 0%, rgba(15, 12, 27, 0) 70%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 105, 180, 0.18) 0%, rgba(13, 10, 20, 0) 70%);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      filter: blur(50px);
+      filter: blur(60px);
       z-index: 1;
-      animation: pulseGlow 8s infinite alternate ease-in-out;
+      transition: background 1s ease;
     }
 
-    @keyframes pulseGlow {
-      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-      100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
-    }
-
-    /* القلوب والجزيئات المتساقطة الراقية */
-    .floating-element {
+    /* مطر الستيكرات المتساقط من أعلى الشاشة */
+    .falling-sticker {
       position: absolute;
-      top: -40px;
+      top: -60px;
       pointer-events: none;
       z-index: 2;
-      opacity: 0.6;
-      animation: floatDown linear forwards;
+      animation: fallDown linear forwards;
     }
 
-    @keyframes floatDown {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
-      100% { transform: translateY(105vh) rotate(180deg); opacity: 0; }
+    @keyframes fallDown {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
 
-    /* البطاقة الرئيسية */
-    .main-card {
+    /* حاوي النص الحر (بدون حدود أو بطاقة) */
+    .text-container {
       position: relative;
       z-index: 10;
-      width: 90%;
-      max-width: 440px;
-      min-height: 580px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 28px;
-      padding: 35px 28px 25px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.03);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      max-width: 500px;
+      width: 100%;
       text-align: center;
-      transition: all 0.5s ease;
+      margin-bottom: 40px;
+      animation: fadeInText 0.8s ease-in-out;
     }
 
-    /* الرمز التعبيري / الستيكر الراقي */
-    .icon-wrapper {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 42px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      margin-bottom: 20px;
-      animation: gentleFloat 4s infinite ease-in-out;
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes gentleFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    /* العناوين والنصوص */
     .title {
       font-family: 'Aref Ruqaa', serif;
-      font-size: 26px;
-      font-weight: 700;
+      font-size: 32px;
       color: #f7d6e0;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 2px 10px rgba(247, 214, 224, 0.2);
-    }
-
-    .content-box {
-      min-height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 10px;
+      margin-bottom: 25px;
+      text-shadow: 0 4px 15px rgba(247, 214, 224, 0.3);
     }
 
     .message {
-      font-size: 16px;
-      line-height: 1.9;
-      color: #e0e0e0;
-      font-weight: 300;
+      font-size: 19px;
+      line-height: 2.1;
+      color: #eaeaea;
+      font-weight: 400;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      padding: 0 10px;
     }
 
-    /* تحكم الأزرار والمؤشر */
-    .bottom-section {
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .controls {
+    /* زر الانتقال على شكل ستيكر كبيـر تفاعلي */
+    .sticker-btn-wrapper {
+      position: relative;
+      z-index: 10;
       display: flex;
-      gap: 12px;
-      width: 100%;
-    }
-
-    .btn {
-      flex: 1;
-      padding: 13px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
+      flex-direction: column;
+      align-items: center;
       cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Tajawal', sans-serif;
+      transition: transform 0.3s ease;
     }
 
-    .btn:hover:not(:disabled) {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-2px);
+    .sticker-btn-wrapper:hover {
+      transform: scale(1.1);
     }
 
-    .btn:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
+    .sticker-btn-wrapper:active {
+      transform: scale(0.95);
     }
 
-    .progress-bar {
-      width: 100%;
-      height: 3px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      margin-bottom: 15px;
-      overflow: hidden;
+    .sticker-btn {
+      font-size: 65px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+      animation: pulseSticker 2s infinite ease-in-out;
     }
 
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #ff758c, #ff7eb3);
-      width: 10%;
-      transition: width 0.4s ease;
+    @keyframes pulseSticker {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
     }
 
-    .page-number {
+    .btn-hint {
       font-size: 12px;
-      color: #a0a0a0;
-      margin-top: 10px;
+      color: #aaa;
+      margin-top: 8px;
       letter-spacing: 1px;
+    }
+
+    .progress-dots {
+      position: absolute;
+      bottom: 25px;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #ff7eb3;
+      width: 18px;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -193,151 +152,164 @@
 
   <div class="bg-glow" id="glow"></div>
 
-  <div class="main-card">
-    <div class="icon-wrapper" id="icon">🥀</div>
-
-    <div>
-      <h2 class="title" id="title">عنوان الصفحة</h2>
-      <div class="content-box">
-        <p class="message" id="message">جاري التحميل...</p>
-      </div>
-    </div>
-
-    <div class="bottom-section">
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress"></div>
-      </div>
-      <div class="controls">
-        <button class="btn" id="prevBtn" onclick="prev()">السابق</button>
-        <button class="btn" id="nextBtn" onclick="next()">التالي</button>
-      </div>
-      <div class="page-number" id="pageIndicator">01 / 10</div>
-    </div>
+  <!-- النصوص الحرة بدون إطار -->
+  <div class="text-container" id="textBlock">
+    <h1 class="title" id="title">عنوان الصفحة</h1>
+    <p class="message" id="message">محتوى الرسالة...</p>
   </div>
 
+  <!-- الزر الوحيد المكون من ستيكر متجدد للذهاب فقط -->
+  <div class="sticker-btn-wrapper" id="nextStickerBtn" onclick="nextPage()">
+    <div class="sticker-btn" id="btnSticker">🥀</div>
+    <span class="btn-hint" id="btnHint">اضغط للانتقال ✨</span>
+  </div>
+
+  <!-- مؤشر النقاط لعدد الصفحات -->
+  <div class="progress-dots" id="dotsContainer"></div>
+
   <script>
-    // 10 صفحات نصوص راقية وهادئة بعيدة عن الأسلوب الطفولي
+    // 10 صفحات بنصوص راقية وستيكرات مختلفة لكل صفحة
     const pages = [
       {
-        icon: "🥀",
-        title: "إلى اموشاتي..",
-        text: "لم تكي يوماً مجرد شخص مرّ بفي حياتي، بل كنتِ الهدوء الذي تمنيته وسط كل هذا العالم المزدحم. هذه السطور صممتها لكِ بحب صادق.. من علي.",
-        glow: "radial-gradient(circle, rgba(219, 112, 147, 0.25) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "✨"
+        title: "إلى اموشاتي.. ❤️",
+        message: "لم تكوني يوماً حساً عابراً بفي حياتي، بل كنتِ الهدوء والسكينة التي يتسارع قلبي إليها وسط كل هذا العالم المزدحم. هذه السطور كتبتها لكِ بصدق.. من علي.",
+        buttonSticker: "🥀",
+        rainSticker: ["🥀", "✨", "🤍"],
+        glow: "radial-gradient(circle, rgba(255, 117, 140, 0.25) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "🕊️",
-        title: "سكينة الروح",
-        text: "في حضوركِ أجد ذلك الشعور بالاطمئنان الذي لا يتكرر، وكأن الحياة بأسرها تبتسم لي حين تكونين بخير وصحة وراحة بال.",
-        glow: "radial-gradient(circle, rgba(168, 203, 230, 0.2) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "🌸"
+        title: "سكينة الروح 🕊️",
+        message: "في كل مرة أتحدث فيها معكِ أجد ذلك الأمان الفطري الذي لا يكرره أحد، وكأن الدنيا بأسرها تبتسم حين تكونين بخير وراحة بال.",
+        buttonSticker: "🕊️",
+        rainSticker: ["🕊️", "🌸", "✨"],
+        glow: "radial-gradient(circle, rgba(168, 203, 230, 0.22) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "🌙",
-        title: "حديث الليل",
-        text: "كل كلمة منكِ تترك أثراً دافئاً في قلبي. وجودكِ يمنح الأيام طعماً آخر، أكثر هدوءاً وجمالاً ورُقياً.",
-        glow: "radial-gradient(circle, rgba(186, 147, 219, 0.22) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "🌙"
+        title: "حديث الليل 🌙",
+        message: "كل كلمة صادقة منكِ تترك دفئاً بقلبي. وجودكِ يمنح أيامي طعماً ورُقياً مختلفاً لا يستطيع أحد أن يمنحني إياه سواكِ.",
+        buttonSticker: "🌙",
+        rainSticker: ["🌙", "⭐", "✨"],
+        glow: "radial-gradient(circle, rgba(186, 147, 219, 0.25) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "🤍",
-        title: "نقاء القلب",
-        text: "أتأمل دائماً نقاء روحكِ ولطفكِ، وأدرك في كل مرة كم أنكِ جوهرة حقيقية تستحق كل الحب والتقدير والاحترام.",
-        glow: "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "🤍"
+        title: "نقاء ونبل 🖤",
+        message: "أتأمل دائماً نقاء روحكِ ولطف التعامل بفي تفاصيلكِ، وأدرك تماماً كم أنكِ انسانة استثنائية تستحق كل الحب والتقدير والاحترام.",
+        buttonSticker: "🖤",
+        rainSticker: ["🖤", "💭", "✨"],
+        glow: "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "☕",
-        title: "تفاصيل صغيرة",
-        text: "التفاصيل البسيطة معكِ هي الأكثر بقاءً بفي ذاكرتي.. ابتسامتكِ، صوتكِ، واهتمامكِ اللطيف الذي يصنع كل الفرق.",
-        glow: "radial-gradient(circle, rgba(230, 180, 150, 0.2) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "🍂"
+        title: "تفاصيل صغيرة ☕",
+        message: "التفاصيل البسيطة معكِ هي الأكثر بقاءً في ذاكرتي.. ابتسامتكِ، صوتكِ، واهتمامكِ اللطيف الذي يصنع يومي برقة.",
+        buttonSticker: "☕",
+        rainSticker: ["☕", "🍂", "🍁"],
+        glow: "radial-gradient(circle, rgba(230, 180, 150, 0.2) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "🗝️",
-        title: "مكانة استثنائية",
-        text: "لكِ في قلبي مكانٌ لا يصله أحدٌ غيركِ، مكان صُنِع من تقديرٍ عميق وحبٍ ثابت لا تتغيره الأيام ولا الأوقات.",
-        glow: "radial-gradient(circle, rgba(219, 112, 147, 0.25) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "🗝️"
+        title: "مكانة لا تتغير 🗝️",
+        message: "لكِ في قلبي مكانٌ لا يصله غيركِ أبداً، مكان صُنع من تقدير عميق وحبٍ ثابت تشهد عليه الأيام والسنوات.",
+        buttonSticker: "🗝️",
+        rainSticker: ["🗝️", "💎", "✨"],
+        glow: "radial-gradient(circle, rgba(219, 112, 147, 0.25) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "📜",
-        title: "وعدٌ وصُدق",
-        text: "أن أكون لكِ دائماً ذلك السند الحقيقي والأمان الذي تلجئين إليه بثقة، وأن تبقي دائماً الأهم في نظري.",
-        glow: "radial-gradient(circle, rgba(160, 210, 205, 0.2) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "💎"
+        title: "عَهدٌ وصُدق 📜",
+        message: "أن أكون لكِ دائماً ذلك السند الحقيقي والأمان الذي تلجئين إليه بثقة ودون تردد، وأن تبقي دائماً الأهم في نظري.",
+        buttonSticker: "📜",
+        rainSticker: ["📜", "✒️", "💌"],
+        glow: "radial-gradient(circle, rgba(160, 210, 205, 0.22) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "🕯️",
-        title: "دفء الأيام",
-        text: "مهما كانت الحياة قاسية، تبقى ذكراكِ ووجودكِ كالضوء الهادئ الذي ينير كل الطرقات المظلمة.",
-        glow: "radial-gradient(circle, rgba(240, 190, 120, 0.2) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "✨"
+        title: "ضي الأيام 🕯️",
+        message: "مهما كانت الظروف متعبة، تبقى ذكراكِ ووجودكِ كالضوء الهادئ النقي الذي ينير الطريق ويمنح القوة.",
+        buttonSticker: "🕯️",
+        rainSticker: ["🕯️", "✨", "🌸"],
+        glow: "radial-gradient(circle, rgba(240, 190, 120, 0.2) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "🖤",
-        title: "عمق الشعور",
-        text: "الحب الحقيقي ليس كثرة الكلام، بل هو ذلك الأمان الذي تشعرين به بعمق دون حاجة للتفسير.",
-        glow: "radial-gradient(circle, rgba(200, 150, 180, 0.2) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "🥀"
+        title: "عمق الشعور 💍",
+        message: "الحب الصادق يتجسد بفي ذلك الأمان العميق الذي تشعرين به بفي صدركِ دون حاجة للمزيد من التبرير والتفسير.",
+        buttonSticker: "💍",
+        rainSticker: ["💍", "💎", "💖"],
+        glow: "radial-gradient(circle, rgba(200, 150, 180, 0.25) 0%, rgba(13, 10, 20, 0) 70%)"
       },
       {
-        icon: "💍",
-        title: "دائماً وأبداً",
-        text: "شكراً لأنكِ أنتِ بكل روعتكِ. دمتِ لقلبي أثمن وأجمل نِعمة يا اموشاتي.. معكِ وعنكِ ولأجلكِ دائماً. — علي",
-        glow: "radial-gradient(circle, rgba(255, 120, 150, 0.3) 0%, rgba(15, 12, 27, 0) 70%)",
-        rain: "❤️"
+        title: "دائماً وأبداً ❤️",
+        message: "شكراً لأنكِ بفي حياتي بكل جمالكِ ونقائكِ. دمتِ أثمن وأجمل نِعمة يا اموشاتي.. معكِ وعنكِ ولأجلكِ دائماً. — علي",
+        buttonSticker: "❤️",
+        rainSticker: ["❤️", "💖", "✨"],
+        glow: "radial-gradient(circle, rgba(255, 105, 180, 0.35) 0%, rgba(13, 10, 20, 0) 70%)"
       }
     ];
 
     let current = 0;
 
-    function render() {
-      const data = pages[current];
-      document.getElementById('glow').style.background = data.glow;
-      document.getElementById('icon').innerText = data.icon;
-      document.getElementById('title').innerText = data.title;
-      document.getElementById('message').innerText = data.text;
-
-      // تحديث المؤشر والتقدم
-      const pageFormatted = (current + 1 < 10 ? '0' : '') + (current + 1);
-      document.getElementById('pageIndicator').innerText = `${pageFormatted} / 10`;
-      document.getElementById('progress').style.width = `${((current + 1) / pages.length) * 100}%`;
-
-      // حالة الأزرار
-      document.getElementById('prevBtn').disabled = (current === 0);
-      document.getElementById('nextBtn').disabled = (current === pages.length - 1);
+    // بناء نقط مؤشر الصفحات
+    function setupDots() {
+      const container = document.getElementById('dotsContainer');
+      container.innerHTML = '';
+      pages.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `dot ${index === 0 ? 'active' : ''}`;
+        container.appendChild(dot);
+      });
     }
 
-    function next() {
+    function renderPage() {
+      const p = pages[current];
+      
+      // التغيير مع أنيميشن ناعم للنص
+      const textBlock = document.getElementById('textBlock');
+      textBlock.style.animation = 'none';
+      textBlock.offsetHeight;
+      textBlock.style.animation = 'fadeInText 0.8s ease-in-out';
+
+      document.getElementById('title').innerText = p.title;
+      document.getElementById('message').innerText = p.message;
+      document.getElementById('btnSticker').innerText = p.buttonSticker;
+      document.getElementById('glow').style.background = p.glow;
+
+      // تحديث نقاط التقدم
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        dot.className = `dot ${idx === current ? 'active' : ''}`;
+      });
+
+      // إذا وصلنا آخر صفحة يختفي الزر
+      if (current === pages.length - 1) {
+        document.getElementById('btnHint').innerText = "النهاية ❤️";
+      }
+    }
+
+    function nextPage() {
       if (current < pages.length - 1) {
         current++;
-        render();
+        renderPage();
       }
     }
 
-    function prev() {
-      if (current > 0) {
-        current--;
-        render();
-      }
+    // تساقط الستيكرات بأسلوب مطر متحرك يتغير كل صفحة
+    function spawnRainSticker() {
+      const p = pages[current];
+      const sticker = document.createElement('div');
+      sticker.className = 'falling-sticker';
+      
+      // اختيار ستيكر عشوائي من ستيكرات الصفحة الحالية
+      const randomIcon = p.rainSticker[Math.floor(Math.random() * p.rainSticker.length)];
+      sticker.innerText = randomIcon;
+      
+      sticker.style.left = Math.random() * 90 + 5 + 'vw';
+      sticker.style.fontSize = Math.random() * 15 + 20 + 'px';
+      sticker.style.animationDuration = Math.random() * 3 + 4 + 's';
+      
+      document.body.appendChild(sticker);
+
+      setTimeout(() => sticker.remove(), 7000);
     }
 
-    // تساقط العناصر الناعمة بالخلفية
-    function createParticles() {
-      const el = document.createElement('div');
-      el.className = 'floating-element';
-      el.innerText = pages[current].rain;
-      el.style.left = Math.random() * 90 + 5 + 'vw';
-      el.style.fontSize = Math.random() * 10 + 16 + 'px';
-      el.style.animationDuration = Math.random() * 3 + 5 + 's';
-      document.body.appendChild(el);
-
-      setTimeout(() => el.remove(), 8000);
-    }
-
-    setInterval(createParticles, 600);
-    render();
+    setupDots();
+    renderPage();
+    setInterval(spawnRainSticker, 500);
   </script>
 
 </body>
