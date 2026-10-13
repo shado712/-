@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رسالة من علي إلى اموشاتي ❤️</title>
+    <title>علي & اموشاتي ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -24,7 +24,7 @@
             position: relative;
         }
 
-        /* المطر المتساقط (القلوب والستيكرات) */
+        /* عناصر المطر المتساقط بنفس منطق الكود الخاص بك */
         .rain-item {
             position: absolute;
             top: -50px;
@@ -104,7 +104,7 @@
             justify-content: center;
         }
 
-        /* الأزرار والتنقل */
+        /* الأزرار والمؤشر */
         .nav-buttons {
             display: flex;
             gap: 15px;
@@ -148,7 +148,7 @@
 
     <div class="card-container" id="card">
         <div class="sticker-box">
-            <img id="sticker" src="" alt="ستيكر بناتي">
+            <img id="sticker" src="" alt="ستيكر">
         </div>
 
         <div>
@@ -166,7 +166,7 @@
     </div>
 
     <script>
-        // قصة الرسائل والصفحات
+        // مصفوفة القصة بنفس الهيكلية الخاصة بك مع تغيير الكلام والستيكرات
         const story = [
             {
                 bg: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
@@ -233,13 +233,13 @@
             }
         }
 
-        // دالة المطر المتساقط مثل الكود الخاص بك
+        // نفس دالة spawnRain الموجودة بكودك بالضبط
         function spawnRain() {
             const r = document.createElement('div');
             r.className = 'rain-item';
             r.innerHTML = story[cur].rain;
             r.style.left = Math.random() * 100 + 'vw';
-            r.style.fontSize = Math.random() * 20 + 25 + 'px';
+            r.style.fontSize = Math.random() * 20 + 30 + 'px';
             r.style.animationDuration = Math.random() * 2 + 3 + 's';
             document.body.appendChild(r);
             setTimeout(() => r.remove(), 5000);
